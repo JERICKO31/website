@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Resume</title>
+  <style>
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: #333;
+    }
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.name-animate {
+  animation: slideFadeIn 1s ease forwards;
+}
+    .container {
+      background-color: #fff;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 40px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      border: 1px solid #cbd2d9;
+      
+    }
+
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .profile-left {
+      width: 28%;
+    }
+
+    .profile-img {
+      .profile-img img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+}
+
+    }
+
+    .profile-right {
+      width: 68%;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .info h1 {
+      font-size: 2em;
+      margin-bottom: 5px;
+      color: #1e293b;
+    }
+
+    .contact-info p {
+      font-size: 0.95em;
+      line-height: 1.5;
+      margin: 4px 0;
+      color: #475569;
+    }
+
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #1e40af;
+    }
+
+    .categories h3 {
+      margin-top: 0;
+      font-weight: 600;
+      color: #334155;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 6px;
+    }
+
+    .categories p {
+      margin-top: 6px;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    
+    .section {
+      margin-top: 30px;
+      border-top: 1px solid #cbd2d9;
+      padding-top: 20px;
+    }
+
+    .section h3 {
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 12px;
+      border-left: 4px solid #3b82f6;
+      padding-left: 10px;
+      font-size: 1.3em;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 15px;
+      font-size: 1em;
+    }
+
+    strong {
+      color: #334155;
+    }
+
+    ul {
+      padding-left: 25px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #475569;
+      font-size: 1em;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+        .back-home-button:hover {
+            background-color: #9e1212;
+        }
+  </style>
+   </head>
+    <body>
+        <div class="container">
+        <div class="top">
+        <div class="profile-left">
+        <div class="profile-img"><img src="picture.jpg"></div>
+        </div>
+        <div class="profile-right">
+        <div class="info">
+          <h1 class="name-animate">Eirhiz Jericko Maniego</h1>
+          <div class="contact-info">
+            <p>BLK 1, Lot 3, Meywoods Ph 3, Lawa,<br>
+            Meycauayan City, Bulacan</p>
+            <p>Email: <a href="mailto:eirhizjericko@gmail.com">eirhizjericko@gmail.com</a><br>
+            Contact no: 0912-345-6789</p>
+        </div>
+        </div>
+        <div class="categories">
+          <h3>Date</h3>
+          <p>June 3, 2025</p>
+          <h3 style="margin-top: 25px; border-top: 2px solid #3b82f6; padding-top: 6px;">Web Design</h3>
+          <h3 style="margin-top: 25px;">Front-end HTML/CSS</h3>
+        </div>
+        </div>
+    </div>
+
+    <div class="section">
+      <h3>About Me</h3>
+      <p>I am 19 years old, a 1st-year BSIT-CST student at FEU Tech, passionate about technology, design, and building user-friendly websites. I aim to become a skilled security analyst in the future.</p>
+      <p>I use web design principles such as clear layout, good spacing, and easy-to-read text. I also follow design trends like simple style, clean look, and organized sections to make my resume neat and easy to understand.</p>
+    </div>
+
+    <div class="section">
+      <h3>Education</h3>
+      <p><strong>College</strong><br>
+        FEU Tech — 2024–2025
+      </p>
+      <p><strong>Senior High School</strong><br>
+        Meycauayan College, Inc., Bulacan — 2023–2024<br>
+        University of the East, Caloocan — 2022–2023
+      </p>
+      <p><strong>Junior High School</strong><br>
+        Meycauayan College, Inc., Bulacan — 2019–2022<br>
+        Malinta National High — 2020–2021
+      </p>
+      <p><strong>Elementary Education</strong><br>
+        Meycauayan College — 2016–2019<br>
+        Trinitas College — 2014–2016<br>
+        San Isidro San Roque Academy — 2013–2014
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Skills</h3>
+      <ul>
+        <li>Web Design (HTML/CSS)(Basic)</li>
+        <li>Graphic Design (Canva, Photoshop)</li>
+        <li>Microsoft Office</li>
+        <li>Teamwork and Communication</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Hobbies</h3>
+      <p>Playing basketball, spending time with family & friends, online games, and watching movies.</p>
+    </div>
+    <div class="section" style="text-align: center;">
+  <a href="index.html" class="back-home-button">← Back to Homepage</a>
+</div>
+  </div>
+</body>
+</html>
+
+

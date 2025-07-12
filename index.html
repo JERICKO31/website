@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="medieval-title">Welcome to My Personal Homepage</h1>
+    <p class="subtitle">This is my project for Web Design with Client-Side Scripting (IT0043L). </p>
+    <p class="subtitle">By Eirhiz Jericko Maniego</p>
+    <p class="section-title">Homepage</p>
+    <a href="contacts with gsheets.html" class="floating-contact" title="Contact Me">📜</a>
+
+   
+      <div class="grid">
+        <div class="box"><a class="label" href="S2LAB-MANIEGO.html" target="_blank">ABOUT ME</a></div>
+        <div class="box"><a class="label" href="sdg4.html" target="_blank">LAB-ACT 2</a></div>
+        <div class="box"><a class="label" href="TSA3a.html" target="_blank">LAB-ACT 3</a></div>
+        <div class="box"><a class="label" href="FORM.html" target="_blank">LAB-ACT 4</a></div>
+        <div class="box"><a class="label" href="SDGS.html" target="_blank">LAB-ACT 5</a></div>
+        <div class="box"><div class="label">Loading....</div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  document.querySelectorAll('.box').forEach(box => {
+  const overlay = document.createElement('div');
+  overlay.style.position = 'absolute';
+  overlay.style.inset = '0';
+  overlay.style.backgroundColor = 'rgba(187, 178, 178, 0.884)';
+  overlay.style.opacity = '0';
+  overlay.style.transition = 'opacity 0.3s ease';
+  overlay.style.pointerEvents = 'none';
+  box.appendChild(overlay);
+
+  box.addEventListener('mouseenter', () => {
+    box.style.transform = 'scale(1.1)';
+    overlay.style.opacity = '1';
+  });
+
+  box.addEventListener('mouseleave', () => {
+    box.style.transform = 'scale(1)';
+    overlay.style.opacity = '0';
+  });});</script>
+</body>
+</html>

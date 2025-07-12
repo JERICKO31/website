@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Contacts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+<style>
+   body, html {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: 'Cinzel', serif;
+     background: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/588a44195922117.66168b374ece8.gif') no-repeat center center fixed;
+     background-size: cover;
+     color: #fff;
+     overflow: hidden;
+   }
+   /* animation - 2 - fadeIn */
+   .container {
+     animation: fadeIn 1.2s ease-in-out forwards;
+     opacity: 0;
+     background-color: rgba(0, 0, 0, 0.6);
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 50px 20px;
+     text-align: center;
+   }
+   @keyframes fadeIn {
+     to {
+       opacity: 1;
+     }
+   }
+   /* animation - 1 - slide*/
+   form {
+     animation: slideUp 1.2s ease forwards;
+     opacity: 0;
+     transform: translateY(30px);
+     background-color: rgba(255, 255, 255, 0.1);
+     padding: 40px;
+     border-radius: 12px;
+     box-shadow: 2px 2px 8px #000;
+     width: 100%;
+     max-width: 600px;
+   }
+   @keyframes slideUp {
+     to {
+       opacity: 1;
+       transform: translateY(0);
+     }
+   }
+   h2 {
+     color: #ffe4b5;
+     font-size: 42px;
+     margin-bottom: 25px;
+     text-shadow: 2px 2px #000;
+   }
+   label {
+     display: block;
+     text-align: left;
+     margin-bottom: 8px;
+     font-size: 20px;
+     color: #f5deb3;
+   }
+   input, textarea {
+     width: 100%;
+     padding: 14px;
+     margin-bottom: 20px;
+     border: 2px solid #d4af37;
+     border-radius: 8px;
+     background-color: #fdf6e3;
+     color: #000;
+     font-family: 'Segoe UI', Arial, sans-serif;
+     font-size: 17px;
+     resize: none;
+     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+   }
+   input:focus, textarea:focus {
+     border-color: #ffa500;
+     box-shadow: 0 0 8px #ffa500;
+     outline: none;
+   }
+   .error {
+     border-color: red;
+   }
+   button {
+     padding: 14px 28px;
+     font-size: 20px;
+     font-family: 'Cinzel', serif;
+     background-color: #d4af37;
+     color: #000;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: background-color 0.3s ease, transform 0.2s ease;
+   }
+   button:hover {
+     background-color: #b8860b;
+     color: #fff;
+     transform: scale(1.05);
+   }
+   #errorMsg, #successMsg {
+     font-size: 17px;
+     margin-top: 12px;
+   }
+   #errorMsg {
+     color: #ff7f7f;
+   }
+   #successMsg {
+     color: #7fff7f;
+   }
+   .back-home-button {
+     display: inline-block;
+     margin-top: 20px;
+     font-size: 18px;
+     color: #ffe4b5;
+     text-decoration: none;
+     transition: color 0.3s ease;
+   }
+   .back-home-button:hover {
+     color: #ffffff;
+     text-decoration: underline;
+   }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Contact Me</h2>
+<form id="contact-form">
+<label>Name:</label>
+<input type="text" name="name" id="name" />
+<label>Email:</label>
+<input type="email" name="email" id="email" />
+<label>Message:</label>
+<textarea name="message" id="message" rows="5"></textarea>
+<button type="submit">Submit</button>
+<p id="errorMsg"></p>
+<p id="successMsg"></p>
+<a href="index.html" class="back-home-button">← Home</a>
+</form>
+</div>
+<script>
+   const scriptURL = "https://script.google.com/macros/s/AKfycbwIWqxGtGT40RS9vCrskVuys9kj6tAIVEobihm6eniQc6ex-gkiraj_kZ3Hfbr4Y_4i/exec";
+   const form = document.getElementById("contact-form");
+   const name = document.getElementById("name");
+   const email = document.getElementById("email");
+   const message = document.getElementById("message");
+   const errorMsg = document.getElementById("errorMsg");
+   const successMsg = document.getElementById("successMsg");
+   form.addEventListener("submit", (e) => {
+     e.preventDefault();
+     errorMsg.innerText = "";
+     successMsg.innerText = "";
+     name.classList.remove("error");
+     email.classList.remove("error");
+     message.classList.remove("error");
+     const allFilled = name.value.trim() !== "" && email.value.trim() !== "" && message.value.trim() !== "";
+     if (!allFilled) {
+       errorMsg.innerText = "Please fill out all fields.";
+       if (name.value.trim() === "") name.classList.add("error");
+       if (email.value.trim() === "") email.classList.add("error");
+       if (message.value.trim() === "") message.classList.add("error");
+     } else if (!email.value.includes("@")) {
+       email.classList.add("error");
+       errorMsg.innerText = "Email must contain '@'\nExample: james@gmail.com";
+     } else {
+       const formData = new FormData(form);
+       fetch(scriptURL, {
+         method: "POST",
+         body: new URLSearchParams(formData)
+       })
+       .then(res => res.json())
+       .then(data => {
+         successMsg.innerText = "Message sent successfully!";
+         form.reset();
+         setTimeout(() => {
+           successMsg.innerText = "";
+           errorMsg.innerText = "";
+         }, 1000);
+       })
+       .catch(error => {
+         errorMsg.innerText = "Error sending message.";
+         console.error("Error!", error.message);
+       });
+     }
+   });
+</script>
+</body>
+</html>
